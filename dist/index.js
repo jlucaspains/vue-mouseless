@@ -1,5 +1,5 @@
 import MouseTrap from 'mousetrap';
-export const hotKey = {
+export const mouseless = {
     bind(el, binding, vnode) {
         const focus = binding && binding.modifiers && binding.modifiers.focus;
         // el might not be present for server-side rendering.

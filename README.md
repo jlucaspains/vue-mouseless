@@ -10,7 +10,7 @@ npm i vue-mouseless -S
 Typescript:
 ```ts
 <template>
-    <input placeholder="Search..." v-mouseless.focus=". f" />
+    <input placeholder="Search..." v-mouseless.focus="'. f'" />
     <button v-mouseless="'. s'" @click.prevent="save">Save</button>
 </template>
 
@@ -35,7 +35,7 @@ import { mouseless } from "vue-mouseless";
 
 Vue.component('example', {
   template: '
-    <input placeholder="Search..." v-mouseless.focus=". f" />
+    <input placeholder="Search..." v-mouseless.focus="'. f'" />
     <button v-mouseless="'. s'" @click.prevent="save">Save</button>
   ',
   directives: { mouseless },
