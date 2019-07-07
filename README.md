@@ -1,6 +1,9 @@
 # vue-mouseless
 A tiny vue directive to bind shortcut keys using [mousetrap](https://github.com/ccampbell/mousetrap).
 
+## TL;DR;
+[Demo](https://f3zy8.codesandbox.io/)
+
 ## Install
 ```
 npm i vue-mouseless -S
@@ -34,13 +37,15 @@ Javascript (es6):
 import { mouseless } from "vue-mouseless";
 
 Vue.component('example', {
-  template: '
+  template: `
     <input placeholder="Search..." v-mouseless.focus="'. f'" />
     <button v-mouseless="'. s'" @click.prevent="save">Save</button>
-  ',
+  `,
   directives: { mouseless },
-  save() {
-    alert("You either clicked Save or pressed '. s' key sequence");
+  methods: {
+    save: () => {
+      alert("You either clicked Save or pressed '. s' key sequence");
+    }
   }
 })
 ```
