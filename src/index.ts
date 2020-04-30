@@ -8,9 +8,7 @@ export const mouseless = {
         // el might not be present for server-side rendering.
         if (el) {
             MouseTrap.bind(
-                (binding as any).value instanceof Object
-                    ? (binding as any).value.key
-                    : (binding as any).value,
+                binding.value instanceof Object ? binding.value.key : binding.value,
                 (e: ExtendedKeyboardEvent) => {
                     if (focus) {
                         el.focus();
