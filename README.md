@@ -81,10 +81,15 @@ This is the default behavior of vue-mouseless. It performs a click on a html com
 <button @click="save" v-mouseless="'. g'" />
 ```
 
+## Custom Action
+In case you don't want to focus the element nor trigger its click event, you can provide an action delegate in the options.
+
+```html
+<button v-mouseless="{ key: '. g', action: save }" />
+```
+
 ## Coming soon
 - [ ] other triggers
-- [ ] stop modifier
-- [ ] prevent modifier
 - [ ] unit tests
 
 ## Mousetrap support
