@@ -12,15 +12,13 @@ export const mouseless = {
                 (e: ExtendedKeyboardEvent) => {
                     if (focus) {
                         el.focus();
+                    } else if (
+                        binding.value instanceof Object &&
+                        binding.value.action instanceof Function
+                    ) {
+                        binding.value.action();
                     } else {
                         el.click();
-
-                        if (
-                            binding.value instanceof Object &&
-                            binding.value.action instanceof Function
-                        ) {
-                            binding.value.action();
-                        }
                     }
                     e.preventDefault();
                     e.stopPropagation();
