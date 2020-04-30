@@ -7,16 +7,27 @@ export const mouseless = {
 
         // el might not be present for server-side rendering.
         if (el) {
-            MouseTrap.bind(binding.value, (e: ExtendedKeyboardEvent) => {
-                if (focus) {
-                    el.focus();
+            MouseTrap.bind(
+                (binding as any).value instanceof Object
+                    ? (binding as any).value.key
+                    : (binding as any).value,
+                (e: ExtendedKeyboardEvent) => {
+                    if (focus) {
+                        el.focus();
+                    } else {
+                        el.click();
 
-                } else {
-                    el.click();
+                        if (
+                            binding.value instanceof Object &&
+                            binding.value.action instanceof Function
+                        ) {
+                            binding.value.action();
+                        }
+                    }
+                    e.preventDefault();
+                    e.stopPropagation();
                 }
-                e.preventDefault();
-                e.stopPropagation();
-            });
+            );
         }
     },
     unbind: (el: HTMLElement, binding: VNodeDirective) => {
