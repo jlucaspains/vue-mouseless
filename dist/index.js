@@ -21,6 +21,6 @@ export const mouseless = {
         }
     },
     unbind: (el, binding) => {
-        MouseTrap.unbind(binding.value);
+        MouseTrap.unbind(binding.value instanceof Object ? binding.value.key : binding.value);
     }
 };

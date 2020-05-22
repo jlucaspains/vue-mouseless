@@ -27,6 +27,6 @@ export const mouseless = {
         }
     },
     unbind: (el: HTMLElement, binding: VNodeDirective) => {
-        MouseTrap.unbind(binding.value);
+        MouseTrap.unbind(binding.value instanceof Object ? binding.value.key : binding.value);
     }
 };
